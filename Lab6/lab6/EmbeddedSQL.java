@@ -260,21 +260,38 @@ public class EmbeddedSQL {
    }//end Query1
 
    public static void Query2(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try {
+         String query = "SELECT S.sname, COUNT(*) FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid GROUP BY S.sname HAVING COUNT(*) >= 3;";
+         int rowCount = esql.executeQuery(query);
+         System.out.println("total row(s): " + rowCount);
+      }
+      catch (Exception e){
+         System.err.println (e.getMessage());         
+      }
    }//end Query2
 
    public static void Query3(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try {
+         String query = "SELECT S.sname, COUNT(*) FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid AND P.color = 'Green' GROUP BY S.sname;";
+         int rowCount = esql.executeQuery(query);
+         System.out.println("total row(s): " + rowCount);
+      }
+      catch (Exception e){
+         System.err.println (e.getMessage());         
+      }
    }//end Query3
 
    public static void Query4(EmbeddedSQL esql){
-      // Your code goes here.
-      // ...
-      // ...
+      try {
+         String query = " SELECT MAX(C0.cost) FROM catalog C0 WHERE C0.sid IN (SELECT S.sid FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid AND P.color = 'Green' INTERSECT  SELECT S.sid FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid AND P.color = 'Red');";
+         int rowCount = esql.executeQuery(query);
+         System.out.println("total row(s): " + rowCount);
+      }
+      catch (Exception e){
+         System.err.println (e.getMessage());         
+      }
+
+
    }//end Query4
 
    public static void Query5(EmbeddedSQL esql){
