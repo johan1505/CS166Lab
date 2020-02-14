@@ -1,9 +1,3 @@
--- Lab 5                                  CS 166 Database Management Systems     
--- Johan Guzman Avalos                    Instructor: M. Salloum 
--- ID 861312308                           TA: Ahmed, Pritom
--- Section 22
--- jguzm022@cs.edu
--- February 07, 2020
 
 -----------------Query 1-----------------
 SELECT P.pid
