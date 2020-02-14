@@ -304,7 +304,7 @@ public class EmbeddedSQL {
 
    public static void Query5(EmbeddedSQL esql){
       try{
-         String query = "SELECT P.pname FROM parts P WHERE cost < ";
+         String query = "SELECT P.pname FROM parts P, catalog C  WHERE P.pid = C.pid AND C.cost < ";
          System.out.print("\tEnter cost: $");
          String input = in.readLine();
          query += input;
@@ -319,11 +319,12 @@ public class EmbeddedSQL {
 
    public static void Query6(EmbeddedSQL esql){
       try{
-         String query = "SELECT S.address FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid WHERE P.name = ";
+         String query = "SELECT DISTINCT S.address FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid AND P.pname = '";
          System.out.print("\tEnter name: $");
          String input = in.readLine();
-         query += input;
-         System.out.println();
+         query += input + "';";
+         System.out.println(input); 
+	System.out.println();
          int rowCount = esql.executeQuery(query);
          System.out.println ("total row(s): " + rowCount);
          System.out.println();
