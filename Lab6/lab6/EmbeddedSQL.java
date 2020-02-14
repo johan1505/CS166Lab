@@ -250,12 +250,9 @@ public class EmbeddedSQL {
    
    public static void Query1(EmbeddedSQL esql){
       try {
-         String query = "SELECT S.sname, COUNT(*)
-                        FROM suppliers S, parts P, catalog C
-                        WHERE S.sid = C.sid AND P.pid = C.pid
-                        GROUP BY S.sname;";
+         String query = "SELECT S.sname, COUNT(*)FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid GROUP BY S.sname;";
          int rowCount = esql.executeQuery(query);
-         System.out.printlin("total row(s): " + rowCount);
+         System.out.println("total row(s): " + rowCount);
       }
       catch (Exception e){
          System.err.println (e.getMessage());         
