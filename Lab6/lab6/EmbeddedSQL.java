@@ -319,7 +319,7 @@ public class EmbeddedSQL {
 
    public static void Query6(EmbeddedSQL esql){
       try{
-         String query = "SELECT S.address FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid WHERE P.name = ";
+         String query = "SELECT S.address FROM suppliers S, parts P, catalog C WHERE S.sid = C.sid AND P.pid = C.pid AND P.name = ";
          System.out.print("\tEnter name: $");
          String input = in.readLine();
          query += input;
