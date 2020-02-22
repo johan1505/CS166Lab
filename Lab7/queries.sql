@@ -34,13 +34,6 @@ AS TOTAL_COUNT;
 
 -- Query 4
 
---SELECT DISTINCT S.supplier_id, S.supplier_name
---FROM supplier S, part_nyc P_NYC
---WHERE S.supplier_id = P_NYC.supplier AND P_NYC.part_number NOT IN (SELECT DISTINCT P_SFO.part_number
---									FROM Supplier S2, part_sfo P_SFO
---									WHERE S2.supplier_id = P_SFO.supplier);
-
-
 SELECT S.supplier_name
 FROM supplier S
 WHERE S.supplier_id IN (
