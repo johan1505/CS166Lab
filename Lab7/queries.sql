@@ -17,29 +17,23 @@ WHERE P_NYC.color = C.color_id AND C.color_name = 'Red')
 AS TOTAL_COUNT;
 
 -- Query 3
---SELECT S.supplier_id, S.supplier_name, SUM(P_NYC.on_hand) AS Total_parts_NYC
---FROM supplier S, part_nyc P_NYC
---WHERE P_NYC.supplier = S.supplier_id AND Total_parts_NYC > (SELECT SUM(P_SFO.on_hand)
---							FROM  part_sfo P_SFO
---							WHERE P_SFO.supplier = S.supplier_id)
---GROUP BY S.supplier_id, S.supplier_name;
+SELECT NYC_Query.supplier_id, NYC_Query.supplier_name
+
+FROM 
+
+(SELECT S.supplier_id, S.supplier_name, SUM(P_NYC.on_hand) AS Total_parts_NYC
+FROM supplier S, part_nyc P_NYC
+WHERE P_NYC.supplier = S.supplier_id
+GROUP BY S.supplier_id, S.supplier_name) AS NYC_Query,
+     
+(SELECT S.supplier_id, S.supplier_name, SUM(P_SFO.on_hand) AS Total_parts_SFO
+FROM supplier S, part_sfo P_SFO
+WHERE P_SFO.supplier = S.supplier_id
+GROUP BY S.supplier_id, S.supplier_name) AS SFO_Query
 
 
---GROUP BY S.supplier_id, S.supplier_name;
-
---SELECT S.supplier_id, S.supplier_name, SUM(P_SFO.on_hand) AS Total_parts_SFO
---FROM supplier S, part_sfo P_SFO
---WHERE P_SFO.supplier = S.supplier_id
---GROUP BY S.supplier_id, S.supplier_name;
-
+WHERE NYC_Query.supplier_id = SFO_Query.supplier_id AND  Total_parts_NYC > Total_parts_SFO;
 -- Query 4
-
---SELECT DISTINCT S.supplier_id, S.supplier_name
---FROM supplier S, part_nyc P_NYC
---WHERE S.supplier_id = P_NYC.supplier AND P_NYC.part_number NOT IN (SELECT DISTINCT P_SFO.part_number
---									FROM Supplier S2, part_sfo P_SFO
---									WHERE S2.supplier_id = P_SFO.supplier);
-
 
 SELECT S.supplier_name
 FROM supplier S
