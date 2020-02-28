@@ -1,4 +1,4 @@
-drop table if exists part_nyc;
+drop table if exists part_nyc CASCADE;
 create table part_nyc (part_number integer, 
                        supplier integer, 
                        color integer, 
@@ -8,7 +8,7 @@ COPY part_nyc
 FROM 'part_nyc.dat'
 WITH DELIMITER ',';
 
-drop table if exists part_sfo;
+drop table if exists part_sfo CASCADE;
 create table part_sfo (part_number integer, 
                        supplier integer,
                        color integer, 
@@ -18,7 +18,7 @@ COPY part_sfo
 FROM 'part_sfo.dat'
 WITH DELIMITER ',';
 
-drop table if exists supplier; 
+drop table if exists supplier CASCADE; 
 create table supplier (supplier_id integer,
                        supplier_name varchar(20));
 insert into supplier values (0, 'Bob');
@@ -33,7 +33,7 @@ insert into supplier values (8, 'Bill');
 insert into supplier values (9, 'Donna');
 
                        
-drop table if exists color; 
+drop table if exists color CASCADE; 
 create table color (color_id integer, 
                     color_name varchar(20));
 insert into color values (0, 'Red'); 

@@ -1,23 +1,23 @@
 CREATE INDEX on_hand_nyc_index
 ON part_nyc
---USING btree
+USING btree
 (on_hand);
 
 
-CREATE INDEX color_sfo_index
-ON part_sfo
+--CREATE INDEX color_sfo_index
+--ON part_sfo
 --USING btree
-(color);
+--(color);
 
-CREATE INDEX color_nyc_index
-on part_nyc
+--CREATE INDEX color_nyc_index
+--on part_nyc
 --USING btree
-(color);
+--(color);
 
-CREATE INDEX on_hand_sfo_index
-ON part_sfo
+-- CREATE INDEX on_hand_sfo_index
+-- part_sfo
 --USING btree
-(on_hand);
+--(on_hand);
 
 
 --CREATE INDEX supplierid_index
@@ -28,20 +28,20 @@ ON part_sfo
 
 CREATE INDEX supplier_parts_nyc_index
 ON part_nyc
---USING btree
+USING btree
 (supplier);
 
 CREATE INDEX supplier_parts_sfo_index
 ON part_sfo
---USING btree
+USING btree
 (supplier);
 
-CREATE INDEX part_number_nyc_index
-ON part_nyc
+--CREATE INDEX part_number_nyc_index
+--ON part_nyc
 --USING btree
-(part_number);
+--(part_number);
 
-CREATE INDEX part_number_sfo_index
-ON part_sfo
+--CREATE INDEX part_number_sfo_index
+--ON part_sfo
 --USING btree
-(part_number);
+--(part_number);

@@ -1,10 +1,83 @@
-Execution times:
+Average Execution times:
 
-            Without Indexes | With Indexes
-Query 1                          | 
-Query 2                          | 
-Query 3                          | 
-Query 4                          | 
-Query 5                          | 
-Query 6                          | 
+Index on part_nyc.on_hand
+
+ 		 Without Indexes  | With Indexes
+Query 1              21.512 ms    |  8.824 ms
+Query 2              21.129 ms    |  18.194 ms
+Query 3              29.482 ms    |  29.004 ms
+Query 4              56909.119 ms |  57598.173 ms
+Query 5              145.743 ms   |  30.491 ms
+Query 6              22.674 ms    |  14.675 ms
+
+           
+Indexes on part_nyc.on_hand and part_sfo.on_hand
+
+ 		 Without Indexes  | With Indexes
+Query 1              21.034 ms    |  12.479 ms
+Query 2              19.058 ms    |  22.110 ms
+Query 3              29.128 ms    |  29.176 ms
+Query 4              57115.060 ms |  57486.719 ms
+Query 5              107.553 ms   |  258.352 ms
+Query 6              27.864 ms    |  15.790 ms
                                 
+
+           
+Indexes on part_nyc.on_hand and part_sfo.color
+
+ 		 Without Indexes  | With Indexes
+Query 1              19.133 ms    |  13.394 ms
+Query 2              19.213 ms    |  12.110 ms
+Query 3              28.935 ms    |  29.597 ms
+Query 4              57337.659 ms |  56627.488 ms
+Query 5              163.487 ms   |  30.352 ms
+Query 6              26.391 ms    |  15.499 ms
+
+Indexes on part_nyc.on_hand, part_nyc.color, and part_sfo.color
+
+ 		 Without Indexes  | With Indexes
+Query 1              21.462 ms    |  12.532 ms
+Query 2              19.982 ms    |  11.140 ms
+Query 3              29.213 ms    |  28.798 ms
+Query 4              56878.977 ms |  57100.415 ms
+Query 5              122.051 ms   |  10.651 ms
+Query 6              27.523 ms    |  16.025 ms
+
+Indexes on part_nyc.on_hand, part_nyc.part_number, and part_sfo.part_number
+
+ 		 Without Indexes  | With Indexes
+Query 1              19.266 ms    |  14.268 ms
+Query 2              19.051 ms    |  20.247 ms
+Query 3              29.928 ms    |  29.813 ms
+Query 4              58322.792 ms |  56907.562 ms
+Query 5              124.031 ms   |  20.451 ms
+Query 6              29.743 ms    |  16.254 ms
+
+Indexes on part_nyc.on_hand, part_nyc.supplier, and part_sfo.supplier
+
+ 		 Without Indexes  | With Indexes
+Query 1              20.151 ms    |  8.134 ms
+Query 2              19.585 ms    |  12.618 ms
+Query 3              29.806 ms    |  14.423 ms
+Query 4              57490.518 ms |  23507.562 ms
+Query 5              118.224 ms   |  23.231 ms
+Query 6              20.074 ms    |  14.564 ms
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
