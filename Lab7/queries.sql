@@ -31,7 +31,6 @@ FROM supplier S, part_sfo P_SFO
 WHERE P_SFO.supplier = S.supplier_id
 GROUP BY S.supplier_id, S.supplier_name) AS SFO_Query
 
-
 WHERE NYC_Query.supplier_id = SFO_Query.supplier_id AND  Total_parts_NYC > Total_parts_SFO;
 -- Query 4
 
@@ -46,8 +45,6 @@ WHERE S.supplier_id IN (
 -- Query 5
 UPDATE part_nyc 
 SET on_hand = on_hand - 10;
-
-
 
 -- Query 6
 DELETE FROM part_nyc
