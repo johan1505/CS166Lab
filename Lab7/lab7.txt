@@ -1,9 +1,9 @@
 Execution times:
 
             Without Indexes | With Indexes
-Query 1                          | 
-Query 2                          | 
-Query 3                          | 
+Query 1        12.700 ms         | 
+Query 2        24.651 ms         | 
+Query 3        47.805            | 
 Query 4                          | 
 Query 5                          | 
 Query 6                          | 
