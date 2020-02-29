@@ -33,7 +33,6 @@ GROUP BY S.supplier_id, S.supplier_name) AS SFO_Query
 
 WHERE NYC_Query.supplier_id = SFO_Query.supplier_id AND  Total_parts_NYC > Total_parts_SFO;
 
-
 -- Query 4
 
 SELECT S.supplier_name
